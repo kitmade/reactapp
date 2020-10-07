@@ -3,10 +3,14 @@ import {Text, View, SafeAreaView, Button} from 'react-native';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import {Provider, useDispatch} from 'react-redux';
 import storeConfig from './redux/storeConfig';
-import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import HomeScreen from './screens/HomeScreen';
+import MainScreen from './screens/MainScreen';
 
 const store = storeConfig();
+
+const Stack = createStackNavigator();
 
 const App = ({params}) => {
   //   const dispatch = useDispatch();
@@ -16,18 +20,20 @@ const App = ({params}) => {
   // });
   return (
     <Provider store={store}>
-      {/* <View> */}
-      <SafeAreaView style={{flex: 1}}>
-        {/* <MapView style={{flex: 1}} provider={PROVIDER_GOOGLE} /> */}
-        <Text>App</Text>
-        <Button
-          title="Init"
-          //   onPress={() => {
-          //     dispatch();
-          //   }}
-        />
-      </SafeAreaView>
-      {/* </View> */}
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Name">
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Main"
+            component={MainScreen}
+            options={{headerShown: false}}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </Provider>
   );
 };
