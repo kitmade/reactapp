@@ -3,11 +3,16 @@ import {Text, View, SafeAreaView, Button} from 'react-native';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import {Provider, useDispatch} from 'react-redux';
 import storeConfig from './redux/storeConfig';
+import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
 
 const store = storeConfig();
 
 const App = ({params}) => {
   //   const dispatch = useDispatch();
+  BackgroundGeolocation.start();
+  BackgroundGeolocation.checkStatus((status) => {
+    console.log(123, status);
+  });
   return (
     <Provider store={store}>
       {/* <View> */}
