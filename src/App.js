@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View, SafeAreaView, Button} from 'react-native';
-import MapView from 'react-native-maps';
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import {Provider, useDispatch} from 'react-redux';
 import storeConfig from './redux/storeConfig';
 
@@ -12,7 +12,7 @@ const App = ({params}) => {
     <Provider store={store}>
       {/* <View> */}
       <SafeAreaView style={{flex: 1}}>
-        <MapView style={{flex: 1}} />
+        <MapView style={{flex: 1}} provider={PROVIDER_GOOGLE} />
         <Text>App</Text>
         <Button
           title="Init"
