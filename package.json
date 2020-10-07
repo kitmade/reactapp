@@ -13,6 +13,7 @@
     "@mauron85/react-native-background-geolocation": "^0.6.3",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-firebase/app": "^8.4.5",
+    "@react-native-firebase/database": "^7.5.11",
     "@react-navigation/native": "^5.7.4",
     "@react-navigation/stack": "^5.9.2",
     "lodash": "^4.17.20",
