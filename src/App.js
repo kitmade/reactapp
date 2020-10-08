@@ -6,23 +6,30 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
-// import HomeScreen from './screens/HomeScreen';
-// import MainScreen from './screens/MainScreen';
+import HomeScreen from './screens/HomeScreen';
+import MainScreen from './screens/MainScreen';
 
 const store = storeConfig();
 
 const Stack = createStackNavigator();
 
 const App = ({params}) => {
-  BackgroundGeolocation.checkStatus((status) => {
-    console.log(123, status);
-  });
   return (
     <Provider store={store}>
-      <MapView style={{flex: 1}} provider={PROVIDER_GOOGLE} />
-      {/* <NavigationContainer> */}
-      {/* <Stack.Navigator initialRouteName="Home"></Stack.Navigator> */}
-      {/* </NavigationContainer> */}
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen
+            name="Main"
+            component={MainScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{headerShown: false}}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </Provider>
   );
 };
