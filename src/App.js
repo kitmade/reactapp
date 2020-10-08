@@ -13,21 +13,11 @@ const Stack = createStackNavigator();
 
 const App = ({params}) => {
   return (
-    // <Provider store={store}>
-
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen
-          name="Home"
-          component={() => (
-            <View style={{flex: 1}}>
-              <Text>Hello</Text>
-            </View>
-          )}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-    // </Provider>
+    <Provider store={store}>
+      <NavigationContainer>
+        {/* <Stack.Navigator initialRouteName="Home"></Stack.Navigator> */}
+      </NavigationContainer>
+    </Provider>
   );
 };
 
