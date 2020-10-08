@@ -5,6 +5,7 @@ import storeConfig from './redux/storeConfig';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 // import HomeScreen from './screens/HomeScreen';
 // import MainScreen from './screens/MainScreen';
 
@@ -18,9 +19,10 @@ const App = ({params}) => {
   });
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        {/* <Stack.Navigator initialRouteName="Home"></Stack.Navigator> */}
-      </NavigationContainer>
+      <MapView style={{flex: 1}} provider={PROVIDER_GOOGLE} />
+      {/* <NavigationContainer> */}
+      {/* <Stack.Navigator initialRouteName="Home"></Stack.Navigator> */}
+      {/* </NavigationContainer> */}
     </Provider>
   );
 };
