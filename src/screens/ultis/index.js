@@ -16,3 +16,7 @@ export const getDataFromDB = (callback) => {
 export const setDataToDB = (name, location) => {
   database().ref(`devices/${name}`).set(location);
 };
+
+export const stopGetDataFromDB = () => {
+  database().ref('devices').off('value', getDataFromDB);
+};
